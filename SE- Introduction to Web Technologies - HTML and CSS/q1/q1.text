@@ -1,0 +1,17 @@
+1. Website
+website is a collection of related web pages stored on a web server and accessible on the internet through a common domain name (e.g., [www.example.com](http://www.example.com)).
+
+2. Webpage
+webpage is a single document or page on a website that is viewed in a web browser. It is usually written in HTML and may include text, images, videos, and links.
+
+3. Web Browser
+web browser is a software application used to access and view websites on the internet. Examples include Google Chrome, Mozilla Firefox, Microsoft Edge, and Safari.
+
+4. Web Server
+web server is a computer (or software) that stores websites and delivers web pages to users when requested through a web browser.
+
+5. HTML (HyperText Markup Language)
+HTML is the standard markup language used to create and structure the content of web pages. It defines elements such as headings, paragraphs, links, and images.
+
+6. CSS (Cascading Style Sheets)
+CSS is a stylesheet language used to control the appearance and layout of web pages. It is used to style HTML elements by changing colors, fonts, spacing, and positioning.

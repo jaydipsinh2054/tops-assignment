@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Pseudo Class Example</title>
+
+    <style>
+        /* Button normal state */
+        button {
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Hover state */
+        button:hover {
+            background-color: orange;
+        }
+
+        /* Active (when clicked) */
+        button:active {
+            background-color: red;
+        }
+
+        /* Input focus state */
+        input:focus {
+            border: 2px solid green;
+            background-color: #f0fff0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Dynamic Pseudo Class Demo</h2>
+
+    <button>Click Me</button>
+
+    <br><br>
+
+    <input type="text" placeholder="Click inside me">
+
+</body>
+</html>
