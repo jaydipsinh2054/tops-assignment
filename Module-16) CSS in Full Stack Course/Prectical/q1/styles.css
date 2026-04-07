@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e6f2ff;
+}
+
+#contact-form {
+    background-color: #ffffff;   
+    width: 400px;
+    margin: 40px auto;           
+    padding: 25px;               
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;         
+}
+
+
+.form-control {
+    width: 100%;
+    padding: 10px;               
+    margin-top: 5px;             
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#submit-btn:hover {
+    background-color: #0056b3;
+}

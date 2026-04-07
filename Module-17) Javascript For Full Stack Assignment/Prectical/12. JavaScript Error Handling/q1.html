@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Division Error Handling</title>
+</head>
+<body>
+
+    <h2>Division by Zero Example</h2>
+
+    <script>
+        try {
+            let num1 = 10;
+            let num2 = 2;
+
+            if (num2 === 0) {
+                throw new Error("Cannot divide by zero!");
+            }
+
+            let result = num1 / num2;
+            document.write("Result: " + result);
+        }
+        catch (error) {
+            document.write("Error: " + error.message);
+        }
+        finally {
+            document.write("<br>Program execution completed.");
+        }
+    </script>
+
+</body>
+</html>

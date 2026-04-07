@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Catalog</title>
+  <style>
+    table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    td img {
+      width: 100px;
+      height: auto;
+    }
+    .in-stock {
+      color: green;
+    }
+    .out-of-stock {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 style="text-align: center;">Product Catalog</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Product Image</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Availability</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Product 1 -->
+      <tr>
+        <td>Smartphone</td>
+        <td><img src="https://via.placeholder.com/100" alt="Smartphone"></td>
+        <td>$299.99</td>
+        <td>Latest model with high-end features.</td>
+        <td class="in-stock">In Stock</td>
+      </tr>
+      <!-- Product 2 -->
+      <tr>
+        <td>Laptop</td>
+        <td><img src="https://via.placeholder.com/100" alt="Laptop"></td>
+        <td>$799.99</td>
+        <td>Powerful laptop with fast processor.</td>
+        <td class="out-of-stock">Out of Stock</td>
+      </tr>
+      <!-- Product 3 -->
+      <tr>
+        <td>Headphones</td>
+        <td><img src="https://via.placeholder.com/100" alt="Headphones"></td>
+        <td>$89.99</td>
+        <td>Noise-cancelling, wireless headphones.</td>
+        <td class="in-stock">In Stock</td>
+      </tr>
+      <!-- Product 4 (using colspan to merge price and description) -->
+      <tr>
+        <td>Smartwatch</td>
+        <td><img src="https://via.placeholder.com/100" alt="Smartwatch"></td>
+        <td colspan="2">$199.99</td>
+        <td class="in-stock">In Stock</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>
