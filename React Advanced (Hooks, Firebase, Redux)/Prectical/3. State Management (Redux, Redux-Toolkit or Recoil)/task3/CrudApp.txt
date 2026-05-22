@@ -1,0 +1,92 @@
+import React, { useState } from "react";
+
+import {
+  useSelector,
+  useDispatch
+} from "react-redux";
+
+import {
+  addUser,
+  deleteUser,
+  updateUser
+} from "../redux/userStore";
+
+function CrudApp() {
+
+  const users = useSelector(
+    (state) => state.users
+  );
+
+  const dispatch = useDispatch();
+
+  const [name, setName] = useState("");
+
+  const handleAdd = () => {
+
+    dispatch(
+      addUser({
+        id: Date.now(),
+        name
+      })
+    );
+
+    setName("");
+  };
+
+  return (
+    <div>
+
+      <h2>Redux Toolkit CRUD</h2>
+
+      <input
+        type="text"
+        value={name}
+        onChange={(e) =>
+          setName(e.target.value)
+        }
+      />
+
+      <button onClick={handleAdd}>
+        Add
+      </button>
+
+      <ul>
+
+        {users.map((user) => (
+
+          <li key={user.id}>
+
+            {user.name}
+
+            <button
+              onClick={() =>
+                dispatch(
+                  updateUser({
+                    id: user.id,
+                    name: "Updated User"
+                  })
+                )
+              }
+            >
+              Update
+            </button>
+
+            <button
+              onClick={() =>
+                dispatch(deleteUser(user.id))
+              }
+            >
+              Delete
+            </button>
+
+          </li>
+
+        ))}
+
+      </ul>
+
+    </div>
+  );
+}
+
+export default CrudApp;

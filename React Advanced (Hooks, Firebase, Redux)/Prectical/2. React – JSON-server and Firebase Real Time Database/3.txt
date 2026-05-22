@@ -1,0 +1,103 @@
+import React, { useEffect, useState } from "react";
+
+function App() {
+
+  // State Variables
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  // Fetch API Data
+  useEffect(() => {
+
+    fetch("https://jsonplaceholder.typicode.com/users")
+
+      .then((response) => {
+
+        // Check for errors
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+
+        return response.json();
+      })
+
+      .then((data) => {
+
+        // Store data
+        setUsers(data);
+
+        // Stop loading
+        setLoading(false);
+      })
+
+      .catch((err) => {
+
+        // Store error message
+        setError(err.message);
+
+        // Stop loading
+        setLoading(false);
+      });
+
+  }, []);
+
+  // Loading State
+  if (loading) {
+    return (
+      <div style={{ padding: "20px" }}>
+        <h2>Loading...</h2>
+      </div>
+    );
+  }
+
+  // Error State
+  if (error) {
+    return (
+      <div style={{ padding: "20px" }}>
+        <h2>{error}</h2>
+      </div>
+    );
+  }
+
+  // Display Data
+  return (
+    <div style={{ padding: "20px" }}>
+
+      <h2>User List</h2>
+
+      <table border="1" cellPadding="10">
+
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          {users.map((user) => (
+
+            <tr key={user.id}>
+
+              <td>{user.id}</td>
+
+              <td>{user.name}</td>
+
+              <td>{user.email}</td>
+
+            </tr>
+
+          ))}
+
+        </tbody>
+
+      </table>
+
+    </div>
+  );
+}
+
+export default App;

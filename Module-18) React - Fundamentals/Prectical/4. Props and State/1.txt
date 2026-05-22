@@ -1,0 +1,50 @@
+import React, { useState } from "react";
+
+// Task 1: UserCard Component
+function UserCard(props) {
+  return (
+    <div
+      style={{
+        border: "1px solid black",
+        padding: "10px",
+        width: "250px",
+        marginBottom: "20px",
+      }}
+    >
+      <h2>{props.name}</h2>
+      <p>Age: {props.age}</p>
+      <p>Location: {props.location}</p>
+    </div>
+  );
+}
+
+// Task 2: Counter Component
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h2>Count: {count}</h2>
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+    </div>
+  );
+}
+
+// Main App Component
+function App() {
+  return (
+    <div>
+      <UserCard
+        name="Rahul"
+        age="22"
+        location="Surat"
+      />
+
+      <Counter />
+    </div>
+  );
+}
+
+export default App;

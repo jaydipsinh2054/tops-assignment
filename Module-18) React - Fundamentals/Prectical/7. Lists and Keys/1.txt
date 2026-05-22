@@ -1,0 +1,44 @@
+import React from "react";
+
+function App() {
+
+  // Task 1: Fruit List
+  const fruits = ["Apple", "Banana", "Mango", "Orange"];
+
+  // Task 2: User List
+  const users = [
+    { id: 1, name: "Rahul" },
+    { id: 2, name: "Amit" },
+    { id: 3, name: "Priya" }
+  ];
+
+  return (
+    <div style={{ padding: "20px" }}>
+
+      {/* Task 1 */}
+      <h2>Fruit List</h2>
+
+      <ul>
+        {fruits.map((fruit, index) => (
+          <li key={index}>{fruit}</li>
+        ))}
+      </ul>
+
+      <hr />
+
+      {/* Task 2 */}
+      <h2>User List</h2>
+
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>
+            {user.name}
+          </li>
+        ))}
+      </ul>
+
+    </div>
+  );
+}
+
+export default App;

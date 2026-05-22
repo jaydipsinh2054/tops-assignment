@@ -1,0 +1,38 @@
+import React, { useState } from "react";
+
+function App() {
+
+  // Task 1: Login Status
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Task 2: Age
+  const age = 20;
+
+  return (
+    <div style={{ padding: "20px" }}>
+
+      {/* Task 1 */}
+      <h2>
+        {isLoggedIn ? "User Logged In" : "User Logged Out"}
+      </h2>
+
+      <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
+        {isLoggedIn ? "Logout" : "Login"}
+      </button>
+
+      <hr />
+
+      {/* Task 2 */}
+      <h2>Voting Eligibility</h2>
+
+      {
+        age >= 18
+          ? <p>You are eligible to vote.</p>
+          : <p>You are not eligible to vote.</p>
+      }
+
+    </div>
+  );
+}
+
+export default App;

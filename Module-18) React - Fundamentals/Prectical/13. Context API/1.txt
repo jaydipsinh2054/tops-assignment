@@ -1,0 +1,131 @@
+import React, {
+  createContext,
+  useContext,
+  useState
+} from "react";
+
+// Create Context
+const AppContext = createContext();
+
+
+// Theme Component
+function ThemeComponent() {
+
+  const { theme, toggleTheme } = useContext(AppContext);
+
+  return (
+    <div
+      style={{
+        backgroundColor:
+          theme === "light" ? "white" : "black",
+
+        color:
+          theme === "light" ? "black" : "white",
+
+        padding: "20px",
+        marginBottom: "20px"
+      }}
+    >
+
+      <h2>{theme.toUpperCase()} MODE</h2>
+
+      <button onClick={toggleTheme}>
+        Toggle Theme
+      </button>
+
+    </div>
+  );
+}
+
+
+// Authentication Component
+function AuthComponent() {
+
+  const { isLoggedIn, login, logout } =
+    useContext(AppContext);
+
+  return (
+    <div>
+
+      {
+        isLoggedIn
+          ? <h2>Welcome User!</h2>
+          : <h2>Please Login</h2>
+      }
+
+      {
+        isLoggedIn
+          ? (
+            <button onClick={logout}>
+              Logout
+            </button>
+          )
+          : (
+            <button onClick={login}>
+              Login
+            </button>
+          )
+      }
+
+    </div>
+  );
+}
+
+
+// Main App Component
+function App() {
+
+  // Theme State
+  const [theme, setTheme] = useState("light");
+
+  // Authentication State
+  const [isLoggedIn, setIsLoggedIn] =
+    useState(false);
+
+  // Toggle Theme Function
+  const toggleTheme = () => {
+
+    setTheme(
+      theme === "light"
+        ? "dark"
+        : "light"
+    );
+  };
+
+  // Login Function
+  const login = () => {
+    setIsLoggedIn(true);
+  };
+
+  // Logout Function
+  const logout = () => {
+    setIsLoggedIn(false);
+  };
+
+  return (
+
+    <AppContext.Provider
+      value={{
+        theme,
+        toggleTheme,
+        isLoggedIn,
+        login,
+        logout
+      }}
+    >
+
+      <div style={{ padding: "20px" }}>
+
+        <ThemeComponent />
+
+        <hr />
+
+        <AuthComponent />
+
+      </div>
+
+    </AppContext.Provider>
+  );
+}
+
+export default App;

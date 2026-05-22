@@ -1,0 +1,107 @@
+import React, { useState } from "react";
+
+import { useRecoilState } from "recoil";
+
+import { todoAtom } from "../recoil/todoAtom";
+
+function TodoApp() {
+
+  const [todos, setTodos] =
+    useRecoilState(todoAtom);
+
+  const [task, setTask] = useState("");
+
+  const addTask = () => {
+
+    setTodos([
+      ...todos,
+      {
+        id: Date.now(),
+        text: task,
+        completed: false
+      }
+    ]);
+
+    setTask("");
+  };
+
+  const removeTask = (id) => {
+
+    setTodos(
+      todos.filter((todo) => todo.id !== id)
+    );
+  };
+
+  const toggleTask = (id) => {
+
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id
+          ? {
+              ...todo,
+              completed: !todo.completed
+            }
+          : todo
+      )
+    );
+  };
+
+  return (
+    <div>
+
+      <h2>Todo List</h2>
+
+      <input
+        type="text"
+        value={task}
+        onChange={(e) =>
+          setTask(e.target.value)
+        }
+      />
+
+      <button onClick={addTask}>
+        Add
+      </button>
+
+      <ul>
+
+        {todos.map((todo) => (
+
+          <li key={todo.id}>
+
+            <span
+              onClick={() =>
+                toggleTask(todo.id)
+              }
+
+              style={{
+                textDecoration:
+                  todo.completed
+                    ? "line-through"
+                    : "none",
+
+                cursor: "pointer"
+              }}
+            >
+              {todo.text}
+            </span>
+
+            <button
+              onClick={() =>
+                removeTask(todo.id)
+              }
+            >
+              Delete
+            </button>
+
+          </li>
+
+        ))}
+
+      </ul>
+
+    </div>
+  );
+}
+
+export default TodoApp;

@@ -1,0 +1,39 @@
+import React, { useState } from "react";
+
+function App() {
+
+  // Task 1 State
+  const [text, setText] = useState("Not Clicked");
+
+  // Task 2 State
+  const [inputValue, setInputValue] = useState("");
+
+  return (
+    <div style={{ padding: "20px" }}>
+
+      {/* Task 1 */}
+      <h2>{text}</h2>
+
+      <button onClick={() => setText("Clicked!")}>
+        Click Me
+      </button>
+
+      <hr />
+
+      {/* Task 2 */}
+      <h2>React Form</h2>
+
+      <input
+        type="text"
+        placeholder="Type something..."
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
+
+      <p>You typed: {inputValue}</p>
+
+    </div>
+  );
+}
+
+export default App;
