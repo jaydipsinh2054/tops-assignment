@@ -1,0 +1,8 @@
+3. GraphQL vs REST (3 differences)
+Clients request only the fields they need, reducing unnecessary data transfer.	REST endpoints often return fixed responses with extra data (over-fetching).Multiple related objects can be fetched in one query, reducing network requests.REST may require multiple API calls to different endpoints.Clients can customize every query for different screens (mobile, web, tablet).	Separate REST endpoints are often needed for different data requirements.
+
+
+Example (Flipkart/Zomato):
+A product listing page may only need name, price, image.
+With GraphQL, only those fields are fetched.
+With REST, the API may also return description, reviews, seller details, stock history, etc., even if they're unused.

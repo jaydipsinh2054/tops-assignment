@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GraphQL Schema Assignment</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body{
+background:#f8f9fa;
+}
+
+section{
+padding:80px 0;
+}
+
+.card{
+margin-bottom:20px;
+}
+
+pre{
+background:#212529;
+color:white;
+padding:15px;
+border-radius:8px;
+overflow:auto;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+
+<div class="container">
+
+<a class="navbar-brand" href="#">
+GraphQL Schema Assignment
+</a>
+
+<button
+class="navbar-toggler"
+data-bs-toggle="collapse"
+data-bs-target="#menu">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a class="nav-link" href="#q1">Question 1</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#q2">Question 2</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#q3">Question 3</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#q4">Question 4</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#q5">Question 5</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- Header -->
+
+<header class="bg-dark text-white text-center py-5">
+
+<div class="container">
+
+<h1>GraphQL Schema & Apollo Sandbox</h1>
+
+<p class="lead">
+Assignment Solutions
+</p>
+
+</div>
+
+</header>
+
+<!-- Question 1 -->
+
+<section id="q1">
+
+<div class="container">
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h3>Question 1</h3>
+
+<p><strong>schema.graphql</strong></p>
+
+<pre>
+type Playlist {
+  id: ID!
+  name: String!
+  songs: [Song]
+}
+
+type Song {
+  id: ID!
+  title: String!
+  artist: String!
+}
+</pre>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Question 2 -->
+
+<section id="q2">
+
+<div class="container">
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h3>Question 2</h3>
+
+<p><strong>Custom Query Type</strong></p>
+
+<pre>
+type Query {
+
+playlist(id: ID!): Playlist
+
+}
+</pre>
+
+<p><strong>Sample Query</strong></p>
+
+<pre>
+query{
+
+playlist(id:"1"){
+
+name
+
+songs{
+
+title
+artist
+
+}
+
+}
+
+}
+</pre>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Question 3 -->
+
+<section id="q3">
+
+<div class="container">
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h3>Question 3</h3>
+
+<p><strong>Nested Query (Apollo Sandbox / GraphiQL)</strong></p>
+
+<pre>
+query {
+
+playlist(id:"1"){
+
+name
+
+songs{
+
+title
+artist
+
+}
+
+}
+
+}
+</pre>
+
+<p><strong>Sample Output</strong></p>
+
+<pre>
+{
+  "data": {
+    "playlist": {
+      "name": "Workout Playlist",
+      "songs": [
+        {
+          "title": "Believer",
+          "artist": "Imagine Dragons"
+        },
+        {
+          "title": "Perfect",
+          "artist": "Ed Sheeran"
+        }
+      ]
+    }
+  }
+}
+</pre>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Question 4 -->
+
+<section id="q4">
+
+<div class="container">
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h3>Question 4</h3>
+
+<p><strong>Updated Song Type</strong></p>
+
+<pre>
+type Song {
+
+id: ID!
+title: String!
+artist: String!
+duration: Int!
+
+}
+</pre>
+
+<p><strong>Sample Data</strong></p>
+
+<pre>
+[
+{
+id:"1",
+title:"Believer",
+artist:"Imagine Dragons",
+duration:204
+},
+
+{
+id:"2",
+title:"Perfect",
+artist:"Ed Sheeran",
+duration:263
+}
+]
+</pre>
+
+<p><strong>Query</strong></p>
+
+<pre>
+query{
+
+songs{
+
+title
+duration
+
+}
+
+}
+</pre>
+
+<p><strong>Sample Output</strong></p>
+
+<pre>
+{
+"data":{
+"songs":[
+{
+"title":"Believer",
+"duration":204
+},
+{
+"title":"Perfect",
+"duration":263
+}
+]
+}
+}
+</pre>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Question 5 -->
+
+<section id="q5">
+
+<div class="container">
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h3>Question 5</h3>
+
+<p><strong>Schema Structure (Introspection)</strong></p>
+
+<pre>
+Query
+
+├── playlist(id: ID!): Playlist
+├── songs: [Song]
+
+Playlist
+
+├── id: ID!
+├── name: String!
+├── songs: [Song]
+
+Song
+
+├── id: ID!
+├── title: String!
+├── artist: String!
+├── duration: Int!
+</pre>
+
+<p>
+
+You can explore the schema in Apollo Sandbox or GraphiQL using the
+Schema Explorer or by running the introspection query.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Footer -->
+
+<footer class="bg-primary text-white text-center p-3">
+
+<h5>
+
+GraphQL Schema Assignment © 2026
+
+</h5>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

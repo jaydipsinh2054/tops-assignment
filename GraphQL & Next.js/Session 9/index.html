@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NextAuth.js Assignment</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body{
+    background:#f8f9fa;
+}
+section{
+    padding:80px 0;
+}
+.card{
+    margin-bottom:20px;
+}
+pre{
+    background:#212529;
+    color:#fff;
+    padding:15px;
+    border-radius:8px;
+    overflow:auto;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+
+<div class="container">
+
+<a class="navbar-brand" href="#">
+NextAuth.js Assignment
+</a>
+
+<button class="navbar-toggler"
+data-bs-toggle="collapse"
+data-bs-target="#menu">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a class="nav-link" href="#q1">Question 1</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#q2">Question 2</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#q3">Question 3</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#q4">Question 4</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#q5">Question 5</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- Header -->
+
+<header class="bg-dark text-white text-center py-5">
+
+<div class="container">
+
+<h1>Next.js Authentication with NextAuth.js</h1>
+
+<p class="lead">
+Assignment Solutions
+</p>
+
+</div>
+
+</header>
+
+<!-- Question 1 -->
+
+<section id="q1">
+
+<div class="container">
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h3>Question 1</h3>
+
+<p><strong>Setup NextAuth.js with Google Provider</strong></p>
+
+<pre>
+npm install next-auth
+</pre>
+
+<pre>
+// pages/api/auth/[...nextauth].js
+
+import NextAuth from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
+
+export default NextAuth({
+
+providers:[
+
+GoogleProvider({
+
+clientId:process.env.GOOGLE_CLIENT_ID,
+
+clientSecret:process.env.GOOGLE_CLIENT_SECRET
+
+})
+
+]
+
+});
+</pre>
+
+<pre>
+// pages/index.js
+
+import { useSession } from "next-auth/react";
+
+export default function Home(){
+
+const { data:session } = useSession();
+
+return(
+
+<div>
+
+{session ? (
+
+<div>
+
+<h2>Welcome {session.user.name}</h2>
+
+<p>{session.user.email}</p>
+
+</div>
+
+):(
+
+<h2>Please Login</h2>
+
+)}
+
+</div>
+
+);
+
+}
+</pre>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Question 2 -->
+
+<section id="q2">
+
+<div class="container">
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h3>Question 2</h3>
+
+<p><strong>.env.local</strong></p>
+
+<pre>
+GOOGLE_CLIENT_ID=your_google_client_id
+
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+
+NEXTAUTH_URL=http://localhost:3000
+
+NEXTAUTH_SECRET=your_secret_key
+</pre>
+
+<p><strong>Use Environment Variables</strong></p>
+
+<pre>
+GoogleProvider({
+
+clientId:process.env.GOOGLE_CLIENT_ID,
+
+clientSecret:process.env.GOOGLE_CLIENT_SECRET
+
+})
+</pre>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Question 3 -->
+
+<section id="q3">
+
+<div class="container">
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h3>Question 3</h3>
+
+<p><strong>Protected API Route</strong></p>
+
+<pre>
+// pages/api/secret.js
+
+import { getServerSession } from "next-auth";
+
+export default async function handler(req,res){
+
+const session = await getServerSession(req,res);
+
+if(!session){
+
+return res.status(401).json({
+
+message:"Unauthorized"
+
+});
+
+}
+
+res.status(200).json({
+
+message:"Welcome Authorized User"
+
+});
+
+}
+</pre>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Question 4 -->
+
+<section id="q4">
+
+<div class="container">
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h3>Question 4</h3>
+
+<p><strong>Protected Profile Page</strong></p>
+
+<pre>
+// pages/profile.js
+
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+
+export default function Profile(){
+
+const { data:session,status } = useSession();
+
+const router = useRouter();
+
+if(status==="loading"){
+
+return <p>Loading...</p>;
+
+}
+
+if(!session){
+
+router.push("/api/auth/signin");
+
+return null;
+
+}
+
+return(
+
+<div>
+
+<h2>{session.user.name}</h2>
+
+<p>{session.user.email}</p>
+
+</div>
+
+);
+
+}
+</pre>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Question 5 -->
+
+<section id="q5">
+
+<div class="container">
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h3>Question 5</h3>
+
+<p><strong>Logout Function (Generated using ChatGPT)</strong></p>
+
+<pre>
+import { signOut } from "next-auth/react";
+
+function LogoutButton(){
+
+const handleLogout = ()=>{
+
+signOut({
+
+callbackUrl:"/"
+
+});
+
+};
+
+return(
+
+<button onClick={handleLogout}>
+
+Logout
+
+</button>
+
+);
+
+}
+
+export default LogoutButton;
+</pre>
+
+<p><strong>AI Tool Used:</strong> ChatGPT</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Footer -->
+
+<footer class="bg-primary text-white text-center p-3">
+
+<h5>
+NextAuth.js Assignment © 2026
+</h5>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

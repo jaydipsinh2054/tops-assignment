@@ -1,0 +1,19 @@
+4. GraphQL query for the given Movie schema
+
+Schema:
+type Movie {
+  title: String
+  rating: Float
+  poster: String
+}
+type Query {
+  movie(title: String): Movie
+}
+
+Query:
+query {
+  movie(title: "Inception") {
+    title
+    poster
+  }
+}

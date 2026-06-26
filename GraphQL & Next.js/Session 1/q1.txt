@@ -1,0 +1,9 @@
+## 1. GraphQL query to fetch the name and image of any 3 Pokémon
+query {
+  pokemon_v2_pokemon(limit: 3) {
+    name
+    pokemon_v2_pokemonsprites {
+      sprites
+    }
+  }
+}

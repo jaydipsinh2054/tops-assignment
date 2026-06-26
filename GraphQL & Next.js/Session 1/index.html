@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GraphQL Assignment</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body{
+            background:#f5f5f5;
+        }
+        section{
+            padding:80px 0;
+        }
+        pre{
+            background:#212529;
+            color:#fff;
+            padding:15px;
+            border-radius:8px;
+        }
+        .card{
+            margin-bottom:20px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">GraphQL Assignment</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#q1">Question 1</a></li>
+                <li class="nav-item"><a class="nav-link" href="#q2">Question 2</a></li>
+                <li class="nav-item"><a class="nav-link" href="#q3">Question 3</a></li>
+                <li class="nav-item"><a class="nav-link" href="#q4">Question 4</a></li>
+                <li class="nav-item"><a class="nav-link" href="#q5">Question 5</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Header -->
+<header class="bg-primary text-white text-center py-5">
+    <div class="container">
+        <h1>GraphQL Assignment</h1>
+        <p class="lead">All Questions and Answers</p>
+    </div>
+</header>
+
+<!-- Question 1 -->
+<section id="q1">
+<div class="container">
+<div class="card shadow">
+<div class="card-body">
+<h3>Question 1</h3>
+
+<p><strong>Fetch the name and image of any 3 Pokémon.</strong></p>
+
+<pre>
+query {
+  pokemon_v2_pokemon(limit: 3) {
+    name
+    pokemon_v2_pokemonsprites {
+      sprites
+    }
+  }
+}
+</pre>
+
+<p>Run this query in the GraphiQL Playground:</p>
+<p>
+https://pokeapi.graphql.dev/
+</p>
+
+</div>
+</div>
+</div>
+</section>
+
+<!-- Question 2 -->
+<section id="q2">
+<div class="container">
+<div class="card shadow">
+<div class="card-body">
+
+<h3>Question 2</h3>
+
+<p><strong>Fetch name, types and maximum HP of Pikachu.</strong></p>
+
+<pre>
+query {
+  pokemon(name: "pikachu") {
+    name
+    maxHP
+    types
+  }
+}
+</pre>
+
+</div>
+</div>
+</div>
+</section>
+
+<!-- Question 3 -->
+<section id="q3">
+<div class="container">
+<div class="card shadow">
+<div class="card-body">
+
+<h3>Question 3</h3>
+
+<table class="table table-bordered">
+<thead class="table-dark">
+<tr>
+<th>GraphQL</th>
+<th>REST</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>Fetches only required fields.</td>
+<td>Returns fixed response with extra data.</td>
+</tr>
+
+<tr>
+<td>Single query can fetch related data.</td>
+<td>Multiple API calls are often required.</td>
+</tr>
+
+<tr>
+<td>Flexible queries for different screens.</td>
+<td>Separate endpoints may be needed.</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+</div>
+</div>
+</section>
+
+<!-- Question 4 -->
+<section id="q4">
+<div class="container">
+<div class="card shadow">
+<div class="card-body">
+
+<h3>Question 4</h3>
+
+<p><strong>Movie Query</strong></p>
+
+<pre>
+query {
+  movie(title: "Inception") {
+    title
+    poster
+  }
+}
+</pre>
+
+</div>
+</div>
+</div>
+</section>
+
+<!-- Question 5 -->
+<section id="q5">
+<div class="container">
+<div class="card shadow">
+<div class="card-body">
+
+<h3>Question 5</h3>
+
+<p><strong>GraphQL Mutation</strong></p>
+
+<pre>
+mutation {
+  addPlaylist(
+    name: "Workout Mix"
+    description: "Songs for the gym"
+  ) {
+    id
+    name
+    description
+  }
+}
+</pre>
+
+<h5 class="mt-4">Explanation</h5>
+
+<table class="table table-striped">
+
+<tr>
+<th>Part</th>
+<th>Description</th>
+</tr>
+
+<tr>
+<td>mutation</td>
+<td>Starts a data modification operation.</td>
+</tr>
+
+<tr>
+<td>addPlaylist</td>
+<td>Creates a new playlist.</td>
+</tr>
+
+<tr>
+<td>name</td>
+<td>Name of the playlist.</td>
+</tr>
+
+<tr>
+<td>description</td>
+<td>Description of the playlist.</td>
+</tr>
+
+<tr>
+<td>id</td>
+<td>Returns the new playlist ID.</td>
+</tr>
+
+<tr>
+<td>name</td>
+<td>Returns playlist name.</td>
+</tr>
+
+<tr>
+<td>description</td>
+<td>Returns playlist description.</td>
+</tr>
+
+</table>
+
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center p-3">
+    <p class="mb-0">GraphQL Assignment Project © 2026</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

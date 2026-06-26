@@ -1,0 +1,23 @@
+2. GraphQL query to fetch the name, types, and maximum HP of a Pokémon (Pikachu)
+
+query {
+  pokemon(name: "pikachu") {
+    name
+    maxHP
+    types
+  }
+}
+
+
+Expected output (example):
+{
+  "data": {
+    "pokemon": {
+      "name": "Pikachu",
+      "maxHP": 60,
+      "types": [
+        "Electric"
+      ]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+5. GraphQL mutation to add a new playlist
+
+mutation {
+  addPlaylist(
+    name: "Workout Mix"
+    description: "Songs for the gym"
+  ) {
+    id
+    name
+    description
+  }
+}
