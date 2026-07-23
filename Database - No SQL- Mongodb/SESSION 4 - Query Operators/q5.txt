@@ -1,0 +1,21 @@
+Step 5: Trending Spotify Playlists Query
+
+Find playlists having:
+Followers greater than 5000.
+Likes greater than or equal to 1000.
+
+Show only:
+Name
+Genre
+
+db.playlists.find(
+    {
+        followers: { $gt: 5000 },
+        likes: { $gte: 1000 }
+    },
+    {
+        _id: 0,
+        name: 1,
+        genre: 1
+    }
+);

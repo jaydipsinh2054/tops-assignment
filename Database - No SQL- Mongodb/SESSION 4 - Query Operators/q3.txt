@@ -1,0 +1,7 @@
+3: Find Pop or Hip-Hop Playlists and Sort by Likes
+
+db.playlists.find(
+    {
+        genre: { $in: ["Pop", "Hip-Hop"] }
+    }
+).sort({ likes: -1 });

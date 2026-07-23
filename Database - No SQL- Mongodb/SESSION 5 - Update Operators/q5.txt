@@ -1,0 +1,36 @@
+5. Flash Sale Using $inc
+
+Decrease the stock of "Wireless Earbuds" by 1 only if stock is greater than 0.
+db.products.updateOne(
+    {
+        name: "Wireless Earbuds",
+        stock: { $gt: 0 }
+    },
+    {
+        $inc: {
+            stock: -1
+        }
+    }
+);
+
+Example:
+Before:
+{
+    name: "Wireless Earbuds",
+    stock: 5
+}
+
+After one purchase:
+{
+    name: "Wireless Earbuds",
+    stock: 4
+}
+
+If the stock becomes:
+{
+    name: "Wireless Earbuds",
+    stock: 0
+}
+
+Running the query again will not decrease the stock because of the condition:
+stock: { $gt: 0 }

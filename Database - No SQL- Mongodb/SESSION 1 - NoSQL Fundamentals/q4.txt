@@ -1,0 +1,54 @@
+q4: Retrieve All Documents
+
+db.restaurants.find()
+
+For better formatting:
+db.restaurants.find().pretty()
+
+Output:-
+{
+    _id: ObjectId("..."),
+    name: "Zomato Kitchen",
+    cuisine: "Indian",
+    rating: 4.7,
+    location: "Ahmedabad"
+}
+
+{
+    _id: ObjectId("..."),
+    name: "Pizza Palace",
+    cuisine: "Italian",
+    rating: 4.5,
+    location: "Mumbai",
+    menu: [
+        "Margherita Pizza",
+        "Garlic Bread",
+        "Pasta"
+    ]
+}
+
+{
+    _id: ObjectId("..."),
+    name: "Burger Hub",
+    cuisine: "American",
+    rating: 4.3,
+    location: "Surat",
+    menu: [
+        "Cheese Burger",
+        "French Fries",
+        "Cold Coffee"
+    ]
+}
+
+{
+    _id: ObjectId("..."),
+    name: "Spice Garden",
+    cuisine: "Chinese",
+    rating: 4.6,
+    location: "Vadodara",
+    menu: [
+        "Hakka Noodles",
+        "Manchurian",
+        "Spring Rolls"
+    ]
+}

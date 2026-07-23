@@ -1,0 +1,15 @@
+1. Insert One Restaurant Document
+
+First, switch to your database (if needed):
+use foodieApp
+
+Insert one restaurant document:
+db.restaurants.insertOne({
+    name: "Burger Hub",
+    cuisine: "Fast Food",
+    location: "Ahmedabad",
+    rating: 4.5
+})
+
+Display the document:
+db.restaurants.find().pretty()

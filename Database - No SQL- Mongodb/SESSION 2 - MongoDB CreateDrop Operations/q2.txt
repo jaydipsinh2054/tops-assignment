@@ -1,0 +1,10 @@
+q2: Create the posts Collection
+
+You can create a collection explicitly using:
+db.createCollection("posts")
+
+Verify:
+show collections
+
+Output:
+posts

@@ -1,0 +1,13 @@
+2: Find Playlists with More Than 1000 Followers
+
+Use the $gt operator and projection.
+db.playlists.find(
+    {
+        followers: { $gt: 1000 }
+    },
+    {
+        _id: 0,
+        name: 1,
+        followers: 1
+    }
+);

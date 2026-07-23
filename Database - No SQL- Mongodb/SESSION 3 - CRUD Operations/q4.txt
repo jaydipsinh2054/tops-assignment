@@ -1,0 +1,19 @@
+4. Update the Rating of Burger Hub
+
+Before updating:
+db.restaurants.find()
+
+Update the rating from 4.5 to 4.7:
+db.restaurants.updateOne(
+    { name: "Burger Hub" },
+    {
+        $set: {
+            rating: 4.7
+        }
+    }
+)
+
+Verify the update:
+db.restaurants.find({
+    name: "Burger Hub"
+}).pretty()

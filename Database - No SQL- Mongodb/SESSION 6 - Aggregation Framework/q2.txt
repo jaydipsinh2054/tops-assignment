@@ -1,0 +1,33 @@
+2. Calculate Total Amount Spent by Each User ($group)
+
+If every item contains its own price value, we can first unwind the items array and then calculate the total.
+
+db.orders.aggregate([
+    {
+        $unwind: "$items"
+    },
+    {
+        $group: {
+            _id: "$userId",
+            totalAmountSpent: {
+                $sum: {
+                    $multiply: [
+                        "$items.quantity",
+                        "$items.price"
+                    ]
+                }
+            }
+        }
+    }
+]);
+
+Example Output
+{
+    _id: 101,
+    totalAmountSpent: 72500
+}
+
+{
+    _id: 102,
+    totalAmountSpent: 31500
+}

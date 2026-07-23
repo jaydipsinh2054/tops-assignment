@@ -1,0 +1,13 @@
+q4: Drop the stories Collection
+
+Drop the collection:
+db.stories.drop()
+
+Output:
+true
+
+Verify that it has been removed:
+show collections
+
+Output:
+posts

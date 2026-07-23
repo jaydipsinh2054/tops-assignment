@@ -1,0 +1,40 @@
+3. Top 3 Highest-Rated Cafes in Ahmedabad
+
+db.restaurants.aggregate([
+    {
+        $match: {
+            cuisine: "Cafe",
+            city: "Ahmedabad"
+        }
+    },
+    {
+        $sort: {
+            rating: -1
+        }
+    },
+    {
+        $limit: 3
+    }
+]);
+
+Example Output
+{
+    name: "Cafe One",
+    cuisine: "Cafe",
+    city: "Ahmedabad",
+    rating: 4.9
+}
+
+{
+    name: "Coffee House",
+    cuisine: "Cafe",
+    city: "Ahmedabad",
+    rating: 4.8
+}
+
+{
+    name: "Brew Corner",
+    cuisine: "Cafe",
+    city: "Ahmedabad",
+    rating: 4.7
+}

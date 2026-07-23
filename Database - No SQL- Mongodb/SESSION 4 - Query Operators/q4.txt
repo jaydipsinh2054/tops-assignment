@@ -1,0 +1,12 @@
+4: Find Playlists with Likes Between 500 and 2000
+
+db.playlists.find(
+    {
+        likes: {
+            $gte: 500,
+            $lte: 2000
+        }
+    }
+)
+.sort({ followers: -1 })
+.limit(3);

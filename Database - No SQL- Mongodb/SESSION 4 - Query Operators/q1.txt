@@ -1,0 +1,38 @@
+1: Insert 5 Playlist Documents
+
+use spotifyDB
+db.playlists.insertMany([
+    {
+        name: "Pop Vibes",
+        likes: 1500,
+        genre: "Pop",
+        followers: 12000
+    },
+    {
+        name: "Hip-Hop Beats",
+        likes: 2500,
+        genre: "Hip-Hop",
+        followers: 8000
+    },
+    {
+        name: "Chill Music",
+        likes: 700,
+        genre: "Lo-Fi",
+        followers: 1500
+    },
+    {
+        name: "Workout Hits",
+        likes: 1800,
+        genre: "Pop",
+        followers: 4500
+    },
+    {
+        name: "Rock Legends",
+        likes: 900,
+        genre: "Rock",
+        followers: 6000
+    }
+]);
+
+Display all playlists:
+db.playlists.find().pretty();

@@ -1,0 +1,35 @@
+4. Total Box Office Collection by Genre
+
+db.movies.aggregate([
+    {
+        $group: {
+            _id: "$genre",
+            totalCollection: {
+                $sum: "$boxOffice"
+            }
+        }
+    },
+    {
+        $project: {
+            _id: 0,
+            genre: "$_id",
+            totalCollection: 1
+        }
+    }
+]);
+
+Example Output
+{
+    genre: "Action",
+    totalCollection: 150000000
+}
+
+{
+    genre: "Drama",
+    totalCollection: 90000000
+}
+
+{
+    genre: "Comedy",
+    totalCollection: 65000000
+}

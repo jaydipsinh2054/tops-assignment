@@ -1,0 +1,25 @@
+2. Insert Three Movie Documents Using insertMany
+db.movies.insertMany([
+    {
+        title: "Pushpa 2: The Rule",
+        genre: "Action",
+        releaseYear: 2024,
+        imdbRating: 6.1
+    },
+    {
+        title: "Jawan",
+        genre: "Action/Thriller",
+        releaseYear: 2023,
+        imdbRating: 7.0
+    },
+    {
+        title: "Animal",
+        genre: "Crime/Drama",
+        releaseYear: 2023,
+        imdbRating: 6.2
+    }
+])
+
+View all movies:
+
+db.movies.find().pretty()

@@ -1,0 +1,30 @@
+q3: Create the stories Collection and Insert a Sample Document
+
+Create the collection:
+db.createCollection("stories")
+
+Insert a sample story document:
+
+db.stories.insertOne({
+    username: "jaydip_vaghela",
+    image_url: "https://example.com/story1.jpg",
+    timestamp: new Date()
+})
+
+Display the inserted document:
+db.stories.find().pretty()
+
+Example Output:
+{
+    _id: ObjectId("..."),
+    username: "jaydip_vaghela",
+    image_url: "https://example.com/story1.jpg",
+    timestamp: ISODate("2026-07-23T10:30:00Z")
+}
+
+Check all collections:
+show collections
+
+Output:
+posts
+stories

@@ -1,0 +1,14 @@
+q2: Create the restaurants Collection and Insert First Document
+
+db.restaurants.insertOne({
+    name: "Zomato Kitchen",
+    cuisine: "Indian",
+    rating: 4.7,
+    location: "Ahmedabad"
+})
+
+Display the collections:
+show collections
+
+Output:
+restaurants

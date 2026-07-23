@@ -1,0 +1,24 @@
+2. Remove temporaryOffer Using $unset
+
+Remove the temporaryOffer field from all restaurants where the offer has expired.
+db.restaurants.updateMany(
+    { offerExpired: true },
+    {
+        $unset: {
+            temporaryOffer: ""
+        }
+    }
+);
+
+Example document before update:
+{
+    name: "Burger Hub",
+    temporaryOffer: "50% OFF",
+    offerExpired: true
+}
+
+After update:
+{
+    name: "Burger Hub",
+    offerExpired: true
+}

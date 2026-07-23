@@ -1,0 +1,39 @@
+5. Delete Cancelled Orders Using deleteMany
+Example Order Documents
+db.orders.insertMany([
+    {
+        orderId: 101,
+        status: "delivered"
+    },
+    {
+        orderId: 102,
+        status: "cancelled"
+    },
+    {
+        orderId: 103,
+        status: "pending"
+    },
+    {
+        orderId: 104,
+        status: "cancelled"
+    }
+])
+
+Delete only the cancelled orders:
+db.orders.deleteMany({
+    status: "cancelled"
+})
+
+Verify the remaining documents:
+db.orders.find().pretty()
+
+Remaining output:
+{
+    orderId: 101,
+    status: "delivered"
+}
+
+{
+    orderId: 103,
+    status: "pending"
+}

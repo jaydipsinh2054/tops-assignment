@@ -1,0 +1,14 @@
+1. Update Genre Using $set
+
+Update the genre field of the playlist named "Evening Vibes".
+db.playlists.updateOne(
+    { name: "Evening Vibes" },
+    {
+        $set: {
+            genre: "Chill"
+        }
+    }
+);
+
+Verify the update:
+db.playlists.find({ name: "Evening Vibes" }).pretty();

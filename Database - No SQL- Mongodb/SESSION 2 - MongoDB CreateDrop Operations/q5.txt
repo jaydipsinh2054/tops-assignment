@@ -1,0 +1,21 @@
+Step 5: Drop the Entire Database
+
+Make sure you are currently using the database:
+use insta_clone_db
+
+Drop the database:
+db.dropDatabase()
+
+Output:
+{
+    ok: 1,
+    dropped: "insta_clone_db"
+}
+
+Verify all databases:
+show dbs
+
+Output (example):
+admin
+config
+local

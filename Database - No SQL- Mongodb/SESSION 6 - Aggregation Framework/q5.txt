@@ -1,0 +1,55 @@
+5. Daily Sales Report for the Last Week
+
+Aggregation pipeline:
+db.payments.aggregate([
+    {
+        $match: {
+            paymentDate: {
+                $gte: new Date(
+                    Date.now() - (7 * 24 * 60 * 60 * 1000)
+                )
+            }
+        }
+    },
+    {
+        $group: {
+            _id: {
+                $dateToString: {
+                    format: "%Y-%m-%d",
+                    date: "$paymentDate"
+                }
+            },
+            totalSales: {
+                $sum: "$amount"
+            }
+        }
+    },
+    {
+        $project: {
+            _id: 0,
+            date: "$_id",
+            totalSales: 1
+        }
+    },
+    {
+        $sort: {
+            date: 1
+        }
+    }
+]);
+
+Example Output
+{
+    date: "2026-07-17",
+    totalSales: 18500
+}
+
+{
+    date: "2026-07-18",
+    totalSales: 23600
+}
+
+{
+    date: "2026-07-19",
+    totalSales: 31250
+}

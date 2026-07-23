@@ -1,0 +1,26 @@
+1. Find Orders Placed in the Last 30 Days ($match)
+
+db.orders.aggregate([
+    {
+        $match: {
+            orderDate: {
+                $gte: new Date(
+                    Date.now() - (30 * 24 * 60 * 60 * 1000)
+                )
+            }
+        }
+    }
+]);
+
+Example Document
+{
+    userId: 101,
+    items: [
+        {
+            product: "Laptop",
+            quantity: 1,
+            price: 50000
+        }
+    ],
+    orderDate: ISODate("2026-07-10")
+}

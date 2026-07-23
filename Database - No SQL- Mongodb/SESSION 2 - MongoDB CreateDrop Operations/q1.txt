@@ -1,0 +1,8 @@
+q1: Create and Switch to the Database
+use insta_clone_db
+
+Verify the current database:
+db
+
+Output:
+insta_clone_db

@@ -1,0 +1,28 @@
+q3: Insert Three More Restaurant Documents
+
+Document 1
+db.restaurants.insertOne({
+    name: "Pizza Palace",
+    cuisine: "Italian",
+    rating: 4.5,
+    location: "Mumbai",
+    menu: ["Margherita Pizza", "Garlic Bread", "Pasta"]
+})
+
+Document 2
+db.restaurants.insertOne({
+    name: "Burger Hub",
+    cuisine: "American",
+    rating: 4.3,
+    location: "Surat",
+    menu: ["Cheese Burger", "French Fries", "Cold Coffee"]
+})
+
+Document 3
+db.restaurants.insertOne({
+    name: "Spice Garden",
+    cuisine: "Chinese",
+    rating: 4.6,
+    location: "Vadodara",
+    menu: ["Hakka Noodles", "Manchurian", "Spring Rolls"]
+})

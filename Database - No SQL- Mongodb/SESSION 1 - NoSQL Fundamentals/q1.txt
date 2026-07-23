@@ -1,0 +1,8 @@
+q1: Create and Use Database
+use foodieApp
+
+Check the current database:
+db
+
+Output:
+foodieApp

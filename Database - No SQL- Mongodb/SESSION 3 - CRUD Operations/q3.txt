@@ -1,0 +1,31 @@
+3. Find All Flipkart Products with Price Less Than 1000
+
+Example query:
+db.flipkart_products.find({
+    price: { $lt: 1000 }
+})
+
+For a formatted output:
+db.flipkart_products.find({
+    price: { $lt: 1000 }
+}).pretty()
+
+Example Product Documents
+db.flipkart_products.insertMany([
+    {
+        productName: "Wireless Mouse",
+        price: 799
+    },
+    {
+        productName: "Bluetooth Speaker",
+        price: 999
+    },
+    {
+        productName: "Smart Watch",
+        price: 2499
+    }
+])
+
+The above query will return:
+Wireless Mouse - 799
+Bluetooth Speaker - 999

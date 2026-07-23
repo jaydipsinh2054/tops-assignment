@@ -1,0 +1,30 @@
+4. Add Tag Using $addToSet
+
+Add the "trending" tag only once for the product with SKU "F12345".
+db.products.updateOne(
+    { SKU: "F12345" },
+    {
+        $addToSet: {
+            tags: "trending"
+        }
+    }
+);
+
+Example:
+Before:
+{
+    SKU: "F12345",
+    tags: ["electronics"]
+}
+
+After running once:
+{
+    SKU: "F12345",
+    tags: ["electronics", "trending"]
+}
+
+After running multiple times:
+{
+    SKU: "F12345",
+    tags: ["electronics", "trending"]
+}

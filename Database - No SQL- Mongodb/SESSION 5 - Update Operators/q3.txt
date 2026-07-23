@@ -1,0 +1,28 @@
+3. Add a Song Using $push
+
+Add "Calm Waters" to the songs array of the playlist having _id equal to 101.
+db.playlists.updateOne(
+    { _id: 101 },
+    {
+        $push: {
+            songs: "Calm Waters"
+        }
+    }
+);
+
+Example:
+Before:
+{
+    _id: 101,
+    songs: ["Night Sky", "Ocean Waves"]
+}
+
+After:
+{
+    _id: 101,
+    songs: [
+        "Night Sky",
+        "Ocean Waves",
+        "Calm Waters"
+    ]
+}
